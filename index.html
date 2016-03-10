@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery 101</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<style>
+	.row{
+		margin-bottom: 5%;
+	}
+	.btn{
+		padding: 10px 20px;
+	}
+	.green{
+		background-color: green;
+	}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-3 text-center">
+			<button class="btn btn-primary" todo="hide">Hide</button>
+		</div>
+		<div class="col-sm-3 text-center">
+			<button class="btn btn-primary" todo="show">Show</button>
+		</div>
+		<div class="col-sm-3 text-center">
+			<button class="btn btn-primary" todo="toggle">Toggle</button>
+		</div>
+		<div class="col-sm-3 text-center">
+			<button class="btn btn-primary" todo="html">HTML</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-3 text-center">
+			<button class="btn btn-primary" todo="append">Append</button>
+		</div>
+		<div class="col-sm-3 text-center">
+			<button class="btn btn-primary" todo="css">CSS</button>
+		</div>
+		<div class="col-sm-3 text-center">
+			<button class="btn btn-primary" todo="text">Text</button>
+		</div>
+		<div class="col-sm-3 text-center">
+			<button class="btn btn-primary" todo="each">Each</button>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12 text-center">
+			<button class="btn btn-success thing ">Do Something to me!</button>
+		</div>
+	</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+
+		var thing = $('.thing');
+
+		console.log(thing);
+
+		$('button').click(function(){
+			var theTrick = $(this).attr('todo');
+			console.log(theTrick);
+			if(theTrick == 'hide'){
+				thing.hide();
+			}else if(theTrick == 'show'){
+				thing.show();
+			}else if(theTrick == 'toggle'){
+				thing.toggle();
+			}else if(theTrick == 'html'){
+				thing.html('<table border="2"<tr><td>Look me, I\'m a row</td><td></tr><tr><td>Here is another cell.</td><td>Here is a 3rd cell</td></tr></table>');
+			}else if(theTrick == "append"){
+				thing.append('<div class="green">I have a friend now.</div>');
+			}else if(theTrick == 'css'){
+				$('.thing').css({
+					'background-color': 'orange',
+					'color': 'red',
+					'font-size' : '30px'
+				});
+			}else if(theTrick == 'text'){
+				thing.text('Just some new text.')
+			}else if(theTrick == 'each'){
+				$('button').each(function(){
+					console.log($(this).text());
+				});
+			}
+		});
+
+	});
+
+	// document.getElementById('wrapper')
+	// $('#wrapper');
+	// document.getElementsByClassName('row');
+	// $('.row')
+	// document.getElementsByTagName('button');
+	// console.log($('button'));
+
+
+
+</script>
+
+
+</body>
+</html>
